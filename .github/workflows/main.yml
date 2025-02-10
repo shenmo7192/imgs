@@ -6,7 +6,7 @@ on:
 jobs:  
   sync:
     runs-on: ubuntu-latest
-    environment: 'atomgit-config'  # 必须与你创建的环境名称完全一致
+    environment: 'atomgit config'  # 必须与你创建的环境名称完全一致
     steps:
       - uses: actions/checkout@v4
 
