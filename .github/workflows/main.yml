@@ -1,0 +1,21 @@
+name: Synch To AtomGit
+on:
+  workflow_call:
+jobs:  
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Config
+        run: |
+          sudo apt update
+          sudo apt install git python3-requests -y
+
+      - name: Push
+        env: 
+          ATOMGITTOKEN: ${{ secrets.ATOMGITTOKEN }}
+          ATOMGITUSER: ${{ secrets.ATOMGITUSER }}
+        run: |
+
+          python3 sync.py $ATOMGITUSER $ATOMGITTOKEN
