@@ -1,6 +1,9 @@
-name: Synch To AtomGit
+name: Sync To AtomGit
 on:
-  workflow_call:
+  workflow_dispatch:
+  push:
+    branches:
+      - "*"
 jobs:  
   sync:
     runs-on: ubuntu-latest
