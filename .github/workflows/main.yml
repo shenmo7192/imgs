@@ -21,4 +21,4 @@ jobs:
           ATOMGITUSER: ${{ secrets.ATOMGITUSER }}
         run: |
 
-          python3 sync.py $ATOMGITUSER $ATOMGITTOKEN
+          python3 sync.py ${{ secrets.ATOMGITUSER }} ${{ secrets.ATOMGITTOKEN }}
