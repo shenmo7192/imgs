@@ -1,22 +1,14 @@
 name: Sync To AtomGit
-on:
-  workflow_dispatch:
+on: 
   push:
-    branches:
-      - "*"
+    branches: [ master ]
+
 jobs:  
   sync:
     runs-on: ubuntu-latest
-    environment: 'atomgit-config'
+    environment: 'atomgit-config'  # 必须与你创建的环境名称完全一致
     steps:
       - uses: actions/checkout@v4
 
-
-
-      - name: Push
-        env: 
-          ATOMGITTOKEN: ${{ secrets.ATOMGITTOKEN }}
-          ATOMGITUSER: ${{ secrets.ATOMGITUSER }}
-        run: |
-
-          python3 sync.py ${{ secrets.ATOMGITUSER }} ${{ secrets.ATOMGITTOKEN }}
+      - name: Push to AtomGit
+        run: python3 sync.py ${{ secrets.ATOMGITUSER }} ${{ secrets.ATOMGITTOKEN }}
